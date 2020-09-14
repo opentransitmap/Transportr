@@ -48,7 +48,7 @@ internal class TripReloader(
             try {
                 val queryTripsResult = networkProvider.queryTrips(
                     query.from.location, query.via?.location, query.to.location, newDate, true,
-                    TripOptions(query.products, settingsManager.optimize, settingsManager.walkSpeed, null, null)
+                    TripOptions(query.products, settingsManager.optimize, settingsManager.walkSpeed, settingsManager.accessibility, null)
                 )
                 if (queryTripsResult.status == OK && queryTripsResult.trips.size > 0) {
                     onTripReloaded(queryTripsResult)

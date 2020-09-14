@@ -110,7 +110,7 @@ internal class TripsRepository(
             val queryTripsResult = networkProvider.queryTrips(
                 query.from.location, if (query.via == null) null else query.via.location, query.to.location,
                 query.date, query.departure,
-                TripOptions(query.products, settingsManager.optimize, settingsManager.walkSpeed, null, null)
+                TripOptions(query.products, settingsManager.optimize, settingsManager.walkSpeed, settingsManager.accessibility, null)
             )
             if (queryTripsResult.status == OK && queryTripsResult.trips.size > 0) {
                 // deliver result first, so UI can get updated

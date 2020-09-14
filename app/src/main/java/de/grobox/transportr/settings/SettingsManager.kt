@@ -28,6 +28,7 @@ import android.preference.PreferenceManager
 import androidx.appcompat.app.AppCompatDelegate.*
 import de.grobox.transportr.R
 import de.schildbach.pte.NetworkId
+import de.schildbach.pte.NetworkProvider.Accessibility
 import de.schildbach.pte.NetworkProvider.Optimize
 import de.schildbach.pte.NetworkProvider.WalkSpeed
 import java.util.*
@@ -92,6 +93,17 @@ class SettingsManager @Inject constructor(private val context: Context) {
             }
         }
 
+    val accessibility: Accessibility
+        get() {
+            return try {
+                val default = context.getString(R.string.pref_accessibility_value_default)
+                Accessibility.valueOf(settings.getString(ACCESSIBILITY, default) ?: default)
+            } catch (e: IllegalArgumentException) {
+                e.printStackTrace()
+                Accessibility.NEUTRAL
+            }
+        }
+
     fun showLocationFragmentOnboarding(): Boolean = settings.getBoolean(LOCATION_ONBOARDING, true)
     fun locationFragmentOnboardingShown() {
         settings.edit().putBoolean(LOCATION_ONBOARDING, false).apply()
@@ -145,6 +157,7 @@ class SettingsManager @Inject constructor(private val context: Context) {
         private const val SHOW_WHEN_LOCKED = "pref_key_show_when_locked"
         private const val WALK_SPEED = "pref_key_walk_speed"
         private const val OPTIMIZE = "pref_key_optimize"
+        private const val ACCESSIBILITY = "pref_key_accessibility"
         private const val LOCATION_ONBOARDING = "locationOnboarding"
         private const val TRIP_DETAIL_ONBOARDING = "tripDetailOnboarding"
     }

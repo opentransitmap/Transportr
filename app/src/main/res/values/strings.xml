@@ -138,6 +138,10 @@ and always knows where you are to not miss where to get off the bus.
 	<string name="pref_walk_speed_slow">Slow</string>
 	<string name="pref_walk_speed_normal">Normal</string>
 	<string name="pref_walk_speed_fast">Fast</string>
+	<string name="pref_accessibility">Accessibility</string>
+	<string name="pref_accessibility_neutral">Neutral</string>
+	<string name="pref_accessibility_limited">Limited</string>
+	<string name="pref_accessibility_barrier_free">Barrier Free</string>
 	<string name="pref_show_when_locked_title">Show trip even when screen is locked</string>
 	<string name="pref_show_when_locked_summary">Show over lock screen</string>
 

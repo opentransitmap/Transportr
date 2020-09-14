@@ -41,6 +41,16 @@
 			android:title="@string/pref_walk_speed"
 			app:iconSpaceReserved="false"/>
 
+		<ListPreference
+			android:defaultValue="@string/pref_accessibility_value_default"
+			android:entries="@array/pref_accessibility_options"
+			android:entryValues="@array/pref_accessibility_values"
+			android:key="pref_key_accessibility"
+			android:negativeButtonText="@string/cancel"
+			android:summary="%s"
+			android:title="@string/pref_accessibility"
+			app:iconSpaceReserved="false"/>
+
 	</PreferenceCategory>
 
 	<PreferenceCategory
